@@ -55,3 +55,12 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
 - xml (enabled by default - don't turn it off)
 # ci4.ombagoes.com
+
+…or create a new repository on the command line
+echo "# ci4.ombagoes.com" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:mudybang/ci4.ombagoes.com.git
+git push -u origin main
