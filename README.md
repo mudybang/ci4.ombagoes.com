@@ -57,7 +57,9 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 # ci4.ombagoes.com
 
 …or create a new repository on the command line
+
 echo "# ci4.ombagoes.com" >> README.md
+
 git init
 git add README.md
 git commit -m "first commit"
