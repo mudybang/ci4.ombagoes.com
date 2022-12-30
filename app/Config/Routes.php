@@ -26,7 +26,7 @@ $routes->set404Override();
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
 // $routes->setAutoRoute(false);
-$routes->setAutoRoute(true);
+//$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -56,3 +56,41 @@ service('auth')->routes($routes);
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
+$modules_paths = [];
+$modules_paths[]= ROOTPATH . 'Company/';
+$modules_paths[]= ROOTPATH . 'Auth/';
+$modules_paths[]= ROOTPATH . 'Master/';
+$modules_paths[]= ROOTPATH . 'Modules/';
+$modules_paths[]= ROOTPATH . 'Payroll/';
+foreach($modules_paths as $modules_path){
+	$modules = scandir($modules_path);
+
+	foreach ($modules as $module) {
+		if ($module === '.' || $module === '..') {
+			continue;
+		}
+
+		if (is_dir($modules_path) . '/' . $module) {
+			$routes_path = $modules_path . $module . '/Routes.php';
+			if (file_exists($routes_path)) {
+				require $routes_path;
+			} else {
+				continue;
+			}
+		}
+	}
+}
+
+$routes->resource('post');
+// Equivalent to the following:
+/*
+$routes->get('post', 'Post::index');
+$routes->get('post/new', 'Post::new');
+$routes->post('post', 'Post::create');
+$routes->get('post/(:segment)', 'Post::show/$1');
+$routes->get('post/(:segment)/edit', 'Post::edit/$1');
+$routes->put('post/(:segment)', 'Post::update/$1');
+$routes->patch('post/(:segment)', 'Post::update/$1');
+$routes->delete('post/(:segment)', 'Post::delete/$1');
+*/

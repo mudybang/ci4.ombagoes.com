@@ -27,6 +27,7 @@ class UserModel extends Model
         'status',
         'status_message',
         'active',
+        'group_id',
         'last_active',
         'deleted_at',
     ];

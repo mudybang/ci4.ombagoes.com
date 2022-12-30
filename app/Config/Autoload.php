@@ -43,6 +43,30 @@ class Autoload extends AutoloadConfig
     public $psr4 = [
         APP_NAMESPACE => APPPATH, // For custom app namespace
         'Config'      => APPPATH . 'Config',
+        'Company\Company' => ROOTPATH. 'Company/Company',
+        'Auth\User' => ROOTPATH. 'Auth/User',
+        'Auth\Group' => ROOTPATH. 'Auth/Group',
+        'Auth\Perm' => ROOTPATH. 'Auth/Perm',
+        'Master\Branch' => ROOTPATH. 'Master/Branch',
+        'Master\Department' => ROOTPATH. 'Master/Department',
+        'Master\Jobtitle' => ROOTPATH. 'Master/Jobtitle',
+        'Master\Employmentstatus' => ROOTPATH. 'Master/Employmentstatus',
+        'Master\Education' => ROOTPATH. 'Master/Education',
+        'Master\Sdp' => ROOTPATH. 'Master/Sdp',
+        'Master\Project' => ROOTPATH. 'Master/Project',
+        'Modules\Employee' => ROOTPATH. 'Modules/Employee',
+        'Modules\Contract' => ROOTPATH. 'Modules/Contract',
+        'Modules\SdpReport' => ROOTPATH. 'Modules/SdpReport',
+        'Modules\History' => ROOTPATH. 'Modules/History',
+        'Modules\Reward' => ROOTPATH. 'Modules/Reward',
+        'Modules\Warning' => ROOTPATH. 'Modules/Warning',
+        'Modules\Insurance' => ROOTPATH. 'Modules/Insurance',
+        'Modules\Loan' => ROOTPATH. 'Modules/Loan',
+        'Modules\Bpjs' => ROOTPATH. 'Modules/Bpjs',
+        'Payroll\Employee' => ROOTPATH. 'Payroll/Employee',
+        'Payroll\Grade' => ROOTPATH. 'Payroll/Grade',
+        'Payroll\Component' => ROOTPATH. 'Payroll/Component',
+        'Payroll\Perm' => ROOTPATH. 'Payroll/Perm'
     ];
 
     /**

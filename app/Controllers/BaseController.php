@@ -35,7 +35,7 @@ abstract class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['MY_form_helper','MY_combobox_helper','MY_string_helper','form','date'];
 
     /**
      * Constructor.

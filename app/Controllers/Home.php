@@ -2,18 +2,26 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
-{
-    public function index()
-    {
-        return view('home_view',[
-            'user'=>auth()->user()
-        ]);
+class Home extends BaseController{
+    protected $db;
+    public function __construct(){
+        $this->db = db_connect();
+    }
+    public function index(){
+        if (auth()->loggedIn()) {
+            $data['parent'] = '.';
+            $data['title'] = 'Home';
+            $data['db'] = $this->db;
+            //$data['perm'] = $this->perm->getPerm($this->module_id);
+            return view("dashboard",$data);
+        }else{
+            return redirect()->to('login');
+        }
     }
     public function logout()
     {
         auth()->logout();
-        return redirect()->to('/admin');
+        return redirect()->to('/login');
     }
     public function info()
     {
